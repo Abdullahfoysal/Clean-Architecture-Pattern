@@ -20,7 +20,7 @@ class FormValidator {
 
   static String? phone(String? number) {
     if (isNullOrEmpty(number) || (number != null && number.length != 11))
-      return "Please enter correct 11 digit phone number";
+      return "Please enter 11 digit phone number";
     return null;
   }
 
