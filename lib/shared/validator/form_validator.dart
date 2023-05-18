@@ -13,8 +13,8 @@ class FormValidator {
   }
 
   static String? password(String? pass) {
-    if (isNullOrEmpty(pass) || (pass != null && pass.length < 6))
-      return "Please enter at least 6 character password";
+    if (isNullOrEmpty(pass) || (pass != null && pass.length < 7))
+      return "Please enter at least 7 character password";
     return null;
   }
 

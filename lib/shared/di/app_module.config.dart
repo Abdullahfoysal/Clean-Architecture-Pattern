@@ -17,11 +17,13 @@ import '../../features/company/data/repository/company_repository_impl.dart'
     as _i10;
 import '../../features/company/domain/repository/company_repository.dart'
     as _i9;
+import '../../features/company/domain/usecase/add_new_company_usecase.dart'
+    as _i12;
 import '../../features/company/domain/usecase/get_company_data_usecase.dart'
     as _i11;
 import '../../features/company/presentation/company_screen_viewmodel.dart'
-    as _i12;
-import '../data/network/di/network_module.dart' as _i13;
+    as _i13;
+import '../data/network/di/network_module.dart' as _i14;
 import '../services/navigation_service.dart'
     as _i4; // ignore_for_file: unnecessary_lambdas
 
@@ -57,11 +59,14 @@ _i1.GetIt $initGetIt(
       () => _i10.CompanyRepositoryImpl(get<_i7.CompanyRemote>()));
   gh.factory<_i11.GetCompanyDataUseCase>(
       () => _i11.GetCompanyDataUseCase(get<_i9.CompanyRepository>()));
-  gh.factory<_i12.CompanyScreenViewModel>(() => _i12.CompanyScreenViewModel(
+  gh.factory<_i12.AddNewCompanyUsecase>(
+      () => _i12.AddNewCompanyUsecase(get<_i9.CompanyRepository>()));
+  gh.factory<_i13.CompanyScreenViewModel>(() => _i13.CompanyScreenViewModel(
         get<_i11.GetCompanyDataUseCase>(),
         get<_i4.NavigationService>(),
+        get<_i12.AddNewCompanyUsecase>(),
       ));
   return get;
 }
 
-class _$NetworkModule extends _i13.NetworkModule {}
+class _$NetworkModule extends _i14.NetworkModule {}

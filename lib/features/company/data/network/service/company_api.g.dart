@@ -42,14 +42,14 @@ class _CompanyAPIs implements CompanyAPIs {
   }
 
   @override
-  Future<ApiResponse> addNewCompany(newCompanyReqParam) async {
+  Future<NewCompanyResponse> addNewCompany(newCompanyReqParam) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(newCompanyReqParam.toJson());
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponse>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<NewCompanyResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -61,7 +61,7 @@ class _CompanyAPIs implements CompanyAPIs {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse.fromJson(_result.data!);
+    final value = NewCompanyResponse.fromJson(_result.data!);
     return value;
   }
 

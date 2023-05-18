@@ -1,3 +1,4 @@
+import 'package:company/features/company/params/new_company_response.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
@@ -19,6 +20,6 @@ abstract class CompanyAPIs {
   Future<CompanyResponse> fetchCompanyList();
 
   @POST("/company")
-  Future<ApiResponse> addNewCompany(
+  Future<NewCompanyResponse> addNewCompany(
       @Body() NewCompanyReqParam newCompanyReqParam);
 }

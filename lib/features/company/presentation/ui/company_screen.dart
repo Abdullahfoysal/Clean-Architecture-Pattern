@@ -68,7 +68,7 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
             AppDesign.divider(),
             Expanded(
               child: CustomStreamBuilder(
-                  stream: viewModel.companyStream,
+                  stream: viewModel.companyDataStream,
                   onData: (CompanyResponse companyListData) {
                     List<Data> companyList =
                         companyListData.company_list?.data ?? [];

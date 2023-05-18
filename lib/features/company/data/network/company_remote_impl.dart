@@ -26,7 +26,7 @@ class CompanyRemoteImpl implements CompanyRemote {
       NewCompanyReqParam newCompanyReqParam) async* {
     try {
       var data = await _companyAPIs.addNewCompany(newCompanyReqParam);
-      yield Result.ok(data.statusCode == 200);
+      yield Result.ok(data.status_code == "1");
     } catch (e) {
       yield Result.error(const ErrorModel(message: "error"));
     }
