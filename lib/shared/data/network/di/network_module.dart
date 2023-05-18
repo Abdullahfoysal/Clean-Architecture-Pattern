@@ -1,9 +1,11 @@
+import 'package:company/shared/data/network/auth_interceptor.dart';
 import 'package:dio/dio.dart';
 import 'package:ehadid/environment.dart';
 import 'package:ehadid/shared/data/network/auth_interceptor.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../../../../environment.dart';
 import '../network_constants.dart';
 
 @module

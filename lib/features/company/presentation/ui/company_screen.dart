@@ -40,7 +40,9 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
               onData: (String? data) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [],
+                  children: [
+                    Text(data??"my data"),
+                  ],
                 );
               },
               onErrorRefresh: () {},
