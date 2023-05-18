@@ -7,7 +7,7 @@ abstract class AppDesign {
     double thickness = 1.5,
   }) =>
       Padding(
-        padding: widgetPadding(),
+        padding: widgetPadding(horizontal: 0, vertical: 0),
         child: Divider(thickness: thickness),
       );
 
@@ -18,7 +18,7 @@ abstract class AppDesign {
       );
 
   static EdgeInsetsGeometry screenBodyPadding(
-          {double horizontal = 8, double vertical = 3.0}) =>
+          {double horizontal = 20, double vertical = 3.0}) =>
       EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical);
 
   static EdgeInsetsGeometry widgetPadding(
@@ -27,8 +27,8 @@ abstract class AppDesign {
 }
 
 abstract class TextStyles {
-  static const double bigTitleFontSize = 22;
-  static const double h0 = 18.0;
+  static const double bigTitleFontSize = 28;
+  static const double h0 = 22.0;
   static const double h1 = 17.0;
   static const double h2 = 14.0;
   static const double h3 = 12.0;
@@ -38,13 +38,13 @@ abstract class TextStyles {
       fontSize: fontSize,
       fontWeight: FontWeight.bold);
 
-  static TextStyle header0({double fontSize = bigTitleFontSize}) => TextStyle(
+  static TextStyle header0({double fontSize = h0}) => TextStyle(
       fontFamily: fontFamilyName,
       fontSize: fontSize,
       fontWeight: FontWeight.bold);
 
   static TextStyle subTitle(
-          {double fontSize = h2, Color color = Colors.grey}) =>
+          {double fontSize = h1, Color color = Colors.grey}) =>
       TextStyle(fontFamily: fontFamilyName, fontSize: fontSize, color: color);
 
   static TextStyle subTitleBold(

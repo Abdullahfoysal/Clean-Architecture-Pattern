@@ -1,4 +1,5 @@
 import 'package:company/features/company/presentation/company_screen_viewmodel.dart';
+import 'package:company/features/company/presentation/ui/widgets.dart';
 import 'package:company/shared/presentation/widget/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_observer/Observable.dart';
@@ -8,8 +9,11 @@ import 'package:stacked/stacked.dart';
 
 import '../../../../shared/presentation/base_screen.dart';
 import '../../../../shared/presentation/extensions/custom_stream_builder.dart';
+import '../../../../shared/presentation/widget/custom_list.dart';
+import '../../../../shared/res/style/app_colors.dart';
 import '../../../../shared/res/style/app_design.dart';
 import '../../entity/company_response.dart';
+import '../../entity/data.dart';
 
 class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
   CompanyScreen({super.key});
@@ -37,22 +41,31 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
       child: SingleChildScrollView(
           child: Stack(
         children: [
-          CustomStreamBuilder(
-              stream: viewModel.companyStream,
-              onData: (CompanyResponse data) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      data.status_message ?? "",
-                      style: TextStyles.header1(),
-                    ),
-                  ],
-                );
-              },
-              onErrorRefresh: () {},
-              onError: (error) => Container(),
-              onLoading: () => loader(context))
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Company List",
+                    style: TextStyles.header0()
+                        .copyWith(color: AppColors.alertTitleColor),
+                  ),
+                ],
+              ),
+              CustomStreamBuilder(
+                  stream: viewModel.companyStream,
+                  onData: (CompanyResponse companyListData) {
+                    List<Data> companyList =
+                        companyListData.company_list?.data ?? [];
+                    return CustomListView<Data>(
+                        companyList, companyItem, noItem);
+                  },
+                  onErrorRefresh: () {},
+                  onError: (error) => Container(),
+                  onLoading: () => loader(context)),
+            ],
+          )
         ],
       )),
     );
