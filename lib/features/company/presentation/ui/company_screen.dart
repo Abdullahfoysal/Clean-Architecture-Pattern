@@ -40,7 +40,9 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: AppColors.lightGreen,
-        onPressed: () {},
+        onPressed: () {
+          viewModel.showAddNewCompanyPopUp(context);
+        },
         label: Text(
           "Create Company",
           style: TextStyle(

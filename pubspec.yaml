@@ -54,6 +54,7 @@ dependencies:
   #color convert
   hexcolor: ^3.0.1
   result_monad: ^1.0.2
+  email_validator: '^2.1.16'
 
 dev_dependencies:
   flutter_test:

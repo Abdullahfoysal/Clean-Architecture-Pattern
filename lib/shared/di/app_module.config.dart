@@ -57,8 +57,10 @@ _i1.GetIt $initGetIt(
       () => _i10.CompanyRepositoryImpl(get<_i7.CompanyRemote>()));
   gh.factory<_i11.GetCompanyDataUseCase>(
       () => _i11.GetCompanyDataUseCase(get<_i9.CompanyRepository>()));
-  gh.factory<_i12.CompanyScreenViewModel>(
-      () => _i12.CompanyScreenViewModel(get<_i11.GetCompanyDataUseCase>()));
+  gh.factory<_i12.CompanyScreenViewModel>(() => _i12.CompanyScreenViewModel(
+        get<_i11.GetCompanyDataUseCase>(),
+        get<_i4.NavigationService>(),
+      ));
   return get;
 }
 
