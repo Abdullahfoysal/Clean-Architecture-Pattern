@@ -1,4 +1,5 @@
 import 'package:company/features/company/domain/usecase/get_company_data_usecase.dart';
+import 'package:company/features/company/params/new_company_request_param.dart';
 import 'package:company/shared/presentation/extensions/extensions.dart';
 import 'package:company/shared/res/style/app_design.dart';
 import 'package:company/shared/services/navigation_service.dart';
@@ -16,6 +17,7 @@ class CompanyScreenViewModel extends BaseViewModel {
   final GetCompanyDataUseCase _getCompanyDataUseCase;
   final NavigationService _navigationService;
   late Stream<CompanyResponse> companyStream;
+  NewCompanyReqParam _newCompanyReqParam = NewCompanyReqParam();
   CompanyScreenViewModel(this._getCompanyDataUseCase, this._navigationService) {
     _init();
   }
@@ -28,6 +30,7 @@ class CompanyScreenViewModel extends BaseViewModel {
   }
 
   showAddNewCompanyPopUp(BuildContext context) {
+    _newCompanyReqParam = NewCompanyReqParam();
     Widget content = Container(
       //  height: MediaQuery.of(context).size.height * 0.5,
       width: MediaQuery.of(context).size.width,
@@ -184,11 +187,19 @@ class CompanyScreenViewModel extends BaseViewModel {
     _navigationService.showNewCompanyPopUp(context, content);
   }
 
-  _onChangeCompanyName(String p1) {}
+  _onChangeCompanyName(String name) {
+    _newCompanyReqParam.company_name = name;
+  }
 
-  _onChangeEmail(String p1) {}
+  _onChangeEmail(String email) {
+    _newCompanyReqParam.email = email;
+  }
 
-  _onChangePassword(String p1) {}
+  _onChangePassword(String pass) {
+    _newCompanyReqParam.password = pass;
+  }
 
-  _onChangePhone(String p1) {}
+  _onChangePhone(String phone) {
+    _newCompanyReqParam.password = phone;
+  }
 }
