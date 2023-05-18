@@ -48,6 +48,11 @@ dependencies:
 
   injectable: ^1.5.3
   http: ^0.13.5
+  # state management
+  stacked: ^3.2.0
+  flutter_observer: ^2.0.0
+  #color convert
+  hexcolor: ^3.0.1
 
 dev_dependencies:
   flutter_test:
