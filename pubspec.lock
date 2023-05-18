@@ -464,6 +464,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
+  result_monad:
+    dependency: "direct main"
+    description:
+      name: result_monad
+      sha256: "399b6289d3a94e46f6971d84c2b795dd9657ffc1c648fbd72ebdcabd0981c042"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   retrofit:
     dependency: "direct main"
     description:
