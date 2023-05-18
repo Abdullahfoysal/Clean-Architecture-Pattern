@@ -36,8 +36,8 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
           child: Stack(
         children: [
           CustomStreamBuilder(
-              stream: viewModel.profileStream,
-              onData: (String data) {
+              stream: viewModel.companyStream,
+              onData: (String? data) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [],

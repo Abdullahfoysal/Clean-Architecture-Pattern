@@ -14,7 +14,7 @@ class CompanyRemoteImpl implements CompanyRemote {
   Stream<Result<String?, ErrorModel>> fetchCompanyList() async* {
     try {
       var data = await _companyAPIs.fetchCompanyList();
-      yield Result.ok(data.body);
+      yield Result.ok(data.message);
     } catch (e) {
       yield Result.error(const ErrorModel(message: "error"));
     }
