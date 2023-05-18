@@ -9,4 +9,6 @@ abstract class AppColors {
   static final Color titleColor = HexColor("#122333");
   static final Color subTitleColor = HexColor("#4E5A66");
   static final Color alertTitleColor = HexColor("#414141");
+  static final Color grey = HexColor("#4E5A66");
+  static final Color lightGreen = HexColor("#25A5A3");
 }

@@ -10,22 +10,31 @@ Widget companyItem(Data company, int index) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: AppDesign.screenBodyPadding(),
+          padding: AppDesign.screenBodyPadding(vertical: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                company.company_name ?? "",
-                style: TextStyles.header0(),
+              Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: Text(
+                  company.company_name ?? "",
+                  style: TextStyles.header0(),
+                ),
               ),
-              Text(
-                company.email ?? "",
-                style: TextStyles.subTitle(),
+              Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Text(
+                  company.email ?? "",
+                  style: TextStyles.subTitle(),
+                ),
               ),
-              Text(
-                company.phone ?? "",
-                style: TextStyles.subTitle(),
+              Padding(
+                padding: const EdgeInsets.all(2.0),
+                child: Text(
+                  company.phone ?? "",
+                  style: TextStyles.subTitle(),
+                ),
               ),
             ],
           ),

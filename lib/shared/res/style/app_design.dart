@@ -1,3 +1,4 @@
+import 'package:company/shared/res/style/app_colors.dart';
 import 'package:flutter/material.dart';
 
 const fontFamilyName = "Roboto";
@@ -43,9 +44,13 @@ abstract class TextStyles {
       fontSize: fontSize,
       fontWeight: FontWeight.bold);
 
-  static TextStyle subTitle(
-          {double fontSize = h1, Color color = Colors.grey}) =>
-      TextStyle(fontFamily: fontFamilyName, fontSize: fontSize, color: color);
+  static TextStyle subTitle({
+    double fontSize = h1,
+  }) =>
+      TextStyle(
+          fontFamily: fontFamilyName,
+          fontSize: fontSize,
+          color: AppColors.grey);
 
   static TextStyle subTitleBold(
           {double fontSize = h3, Color color = Colors.grey}) =>

@@ -37,13 +37,22 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
   @override
   Widget builder(
       BuildContext context, CompanyScreenViewModel viewModel, Widget? child) {
-    return BaseScreen(
-      child: SingleChildScrollView(
-          child: Stack(
-        children: [
-          Column(
-            children: [
-              Row(
+    return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: AppColors.lightGreen,
+        onPressed: () {},
+        label: Text(
+          "Create Company",
+          style: TextStyle(
+              fontFamily: fontFamilyName, color: AppColors.whiteColor),
+        ),
+      ),
+      body: BaseScreen(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -53,7 +62,10 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
                   ),
                 ],
               ),
-              CustomStreamBuilder(
+            ),
+            AppDesign.divider(),
+            Expanded(
+              child: CustomStreamBuilder(
                   stream: viewModel.companyStream,
                   onData: (CompanyResponse companyListData) {
                     List<Data> companyList =
@@ -62,12 +74,15 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
                         companyList, companyItem, noItem);
                   },
                   onErrorRefresh: () {},
-                  onError: (error) => Container(),
+                  onError: (error) => Center(
+                          child: Container(
+                        child: Text("Something went wrong!"),
+                      )),
                   onLoading: () => loader(context)),
-            ],
-          )
-        ],
-      )),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
