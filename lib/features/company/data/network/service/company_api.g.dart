@@ -19,13 +19,13 @@ class _CompanyAPIs implements CompanyAPIs {
   String? baseUrl;
 
   @override
-  Future<ApiResponse> fetchCompanyList() async {
+  Future<CompanyResponse> fetchCompanyList() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponse>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<CompanyResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -37,7 +37,7 @@ class _CompanyAPIs implements CompanyAPIs {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ApiResponse.fromJson(_result.data!);
+    final value = CompanyResponse.fromJson(_result.data!);
     return value;
   }
 

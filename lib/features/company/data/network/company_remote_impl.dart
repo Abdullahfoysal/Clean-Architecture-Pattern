@@ -1,4 +1,5 @@
 import 'package:company/features/company/data/network/service/company_api.dart';
+import 'package:company/features/company/entity/company_response.dart';
 import 'package:company/features/company/params/new_company_request_param.dart';
 import 'package:injectable/injectable.dart';
 import 'package:result_monad/result_monad.dart';
@@ -11,10 +12,10 @@ class CompanyRemoteImpl implements CompanyRemote {
   final CompanyAPIs _companyAPIs;
   CompanyRemoteImpl(this._companyAPIs);
   @override
-  Stream<Result<String?, ErrorModel>> fetchCompanyList() async* {
+  Stream<Result<CompanyResponse, ErrorModel>> fetchCompanyList() async* {
     try {
       var data = await _companyAPIs.fetchCompanyList();
-      yield Result.ok(data.message);
+      yield Result.ok(data);
     } catch (e) {
       yield Result.error(const ErrorModel(message: "error"));
     }

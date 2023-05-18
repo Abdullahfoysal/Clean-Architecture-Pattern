@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:retrofit/http.dart';
 
 import '../../../../../shared/data/model/api_response.dart';
+import '../../../entity/company_response.dart';
 import '../../../params/new_company_request_param.dart';
 
 part 'company_api.g.dart';
@@ -15,7 +16,7 @@ abstract class CompanyAPIs {
       _CompanyAPIs;
 
   @GET("/company")
-  Future<ApiResponse> fetchCompanyList();
+  Future<CompanyResponse> fetchCompanyList();
 
   @POST("/company")
   Future<ApiResponse> addNewCompany(

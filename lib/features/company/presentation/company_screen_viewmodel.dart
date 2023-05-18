@@ -3,11 +3,12 @@ import 'package:company/shared/presentation/extensions/extensions.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../shared/presentation/base_view_model.dart';
+import '../entity/company_response.dart';
 
 @injectable
 class CompanyScreenViewModel extends BaseViewModel {
   final GetCompanyDataUseCase _getCompanyDataUseCase;
-  late Stream<String?> companyStream;
+  late Stream<CompanyResponse> companyStream;
   CompanyScreenViewModel(this._getCompanyDataUseCase) {
     _init();
   }

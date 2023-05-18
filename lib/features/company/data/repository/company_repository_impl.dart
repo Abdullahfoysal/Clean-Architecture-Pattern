@@ -1,5 +1,6 @@
 import 'package:company/features/company/data/repository/company_remote.dart';
 import 'package:company/features/company/domain/repository/company_repository.dart';
+import 'package:company/features/company/entity/company_response.dart';
 import 'package:company/features/company/params/new_company_request_param.dart';
 import 'package:injectable/injectable.dart';
 import 'package:result_monad/src/result_monad_base.dart';
@@ -13,7 +14,7 @@ class CompanyRepositoryImpl implements CompanyRepository {
   CompanyRepositoryImpl(this._remoteSource);
 
   @override
-  Stream<Result<String?, ErrorModel>> fetchCompanyList() =>
+  Stream<Result<CompanyResponse, ErrorModel>> fetchCompanyList() =>
       _remoteSource.fetchCompanyList();
 
   @override

@@ -8,6 +8,8 @@ import 'package:stacked/stacked.dart';
 
 import '../../../../shared/presentation/base_screen.dart';
 import '../../../../shared/presentation/extensions/custom_stream_builder.dart';
+import '../../../../shared/res/style/app_design.dart';
+import '../../entity/company_response.dart';
 
 class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
   CompanyScreen({super.key});
@@ -37,11 +39,14 @@ class CompanyScreen extends StackedView<CompanyScreenViewModel> with Observer {
         children: [
           CustomStreamBuilder(
               stream: viewModel.companyStream,
-              onData: (String? data) {
+              onData: (CompanyResponse data) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(data??"my data"),
+                    Text(
+                      data.status_message ?? "",
+                      style: TextStyles.header1(),
+                    ),
                   ],
                 );
               },
