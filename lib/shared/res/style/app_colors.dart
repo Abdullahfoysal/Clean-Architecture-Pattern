@@ -11,4 +11,6 @@ abstract class AppColors {
   static final Color alertTitleColor = HexColor("#414141");
   static final Color grey = HexColor("#4E5A66");
   static final Color lightGreen = HexColor("#25A5A3");
+  static final Color formBorderColor = HexColor("#E0E0E0");
+  static final Color formHintTextColor = HexColor("#414141");
 }

@@ -1,6 +1,10 @@
+import 'package:company/shared/di/app_module.dart';
+import 'package:company/shared/presentation/widget/image_widget.dart';
+import 'package:company/shared/res/app_images.dart';
 import 'package:flutter/material.dart';
 
 import '../../res/style/app_design.dart';
+import '../../services/navigation_service.dart';
 
 showSimpleAlert(BuildContext context, Widget content,
     [bool showCancelBtn = true, bool barrierDismissible = true]) {
@@ -9,7 +13,7 @@ showSimpleAlert(BuildContext context, Widget content,
     context: context,
     builder: (context) => AlertDialog(
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(18.0))),
+          borderRadius: BorderRadius.all(Radius.circular(10.0))),
       contentPadding: const EdgeInsets.only(top: 0.0),
       titlePadding: EdgeInsets.all(0.0),
       iconPadding: EdgeInsets.all(0.0),
@@ -20,8 +24,7 @@ showSimpleAlert(BuildContext context, Widget content,
             Padding(
               padding: EdgeInsets.only(top: 8.0),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   content,
                   AppDesign.spaceWidgets(height: 16),
@@ -30,18 +33,14 @@ showSimpleAlert(BuildContext context, Widget content,
             ),
             if (showCancelBtn) ...[
               Positioned(
-                top: 0,
-                right: 0,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Container(
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.cancel_outlined,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
+                top: 15,
+                right: 8,
+                child: InkWell(
+                  onTap: () {
+                    getIt<NavigationService>().cancelPopUp(context);
+                  },
+                  child: getImageFromAsset(
+                      imagePath: AppImage.cancelIcon, fit: BoxFit.contain),
                 ),
               ),
             ]

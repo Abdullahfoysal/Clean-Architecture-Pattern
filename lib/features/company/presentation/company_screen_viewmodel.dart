@@ -2,6 +2,7 @@ import 'package:company/features/company/domain/usecase/get_company_data_usecase
 import 'package:company/shared/presentation/extensions/extensions.dart';
 import 'package:company/shared/res/style/app_design.dart';
 import 'package:company/shared/services/navigation_service.dart';
+import 'package:company/shared/validator/form_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -28,29 +29,154 @@ class CompanyScreenViewModel extends BaseViewModel {
 
   showAddNewCompanyPopUp(BuildContext context) {
     Widget content = Container(
-      height: MediaQuery.of(context).size.height * 0.5,
+      //  height: MediaQuery.of(context).size.height * 0.5,
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.only(top: 10.0),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: customInputTextFormField(
-              validator: (val) => null,
-              onChanged: _onChangeCompanyName,
-              context: context,
-              decoration: InputDecoration(
-                border: inputBorder,
-                filled: true,
-                labelStyle: TextStyles.subTitle()
-                  ..copyWith(color: AppColors.grey),
-                fillColor: Colors.black12,
-                focusedBorder: focusedEnabledBorder,
-                enabledBorder: focusedEnabledBorder,
-                counterText: "",
-                contentPadding: const EdgeInsets.only(left: 15),
-                hintText: "Company Name",
-                hintStyle: TextStyles.subTitleBold(),
-              ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30),
+            child: Text(
+              "Create a New Company",
+              style: TextStyles.header0(),
             ),
+          ),
+          Column(
+            //mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: AppDesign.screenBodyPadding(),
+                child: customInputTextFormField(
+                  validator: FormValidator.name,
+                  onChanged: _onChangeCompanyName,
+                  context: context,
+                  decoration: InputDecoration(
+                    border: inputBorder,
+                    filled: true,
+
+                    labelStyle: TextStyles.subTitle()
+                      ..copyWith(color: AppColors.whiteColor),
+                    fillColor: AppColors.whiteColor,
+                    focusedBorder: focusedEnabledBorder,
+                    enabledBorder: focusedEnabledBorder,
+                    counterText: "",
+                    // contentPadding: const EdgeInsets.only(left: 15),
+                    hintText: "Company Name",
+                    hintStyle: TextStyle(
+                        fontFamily: fontFamilyName,
+                        color: AppColors.formHintTextColor,
+                        fontSize: TextStyles.h1,
+                        fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
+              AppDesign.spaceWidgets(height: 8),
+              Padding(
+                padding: AppDesign.screenBodyPadding(),
+                child: customInputTextFormField(
+                  validator: FormValidator.email,
+                  onChanged: _onChangeEmail,
+                  context: context,
+                  decoration: InputDecoration(
+                    border: inputBorder,
+                    filled: true,
+
+                    labelStyle: TextStyles.subTitle()
+                      ..copyWith(color: AppColors.whiteColor),
+                    fillColor: AppColors.whiteColor,
+                    focusedBorder: focusedEnabledBorder,
+                    enabledBorder: focusedEnabledBorder,
+                    counterText: "",
+                    // contentPadding: const EdgeInsets.only(left: 15),
+                    hintText: "Work Email",
+                    hintStyle: TextStyle(
+                        fontFamily: fontFamilyName,
+                        color: AppColors.formHintTextColor,
+                        fontSize: TextStyles.h1,
+                        fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
+              AppDesign.spaceWidgets(height: 8),
+              Padding(
+                padding: AppDesign.screenBodyPadding(),
+                child: customInputTextFormField(
+                  validator: FormValidator.password,
+                  onChanged: _onChangePassword,
+                  context: context,
+                  decoration: InputDecoration(
+                    border: inputBorder,
+                    filled: true,
+
+                    labelStyle: TextStyles.subTitle()
+                      ..copyWith(color: AppColors.whiteColor),
+                    fillColor: AppColors.whiteColor,
+                    focusedBorder: focusedEnabledBorder,
+                    enabledBorder: focusedEnabledBorder,
+                    counterText: "",
+                    // contentPadding: const EdgeInsets.only(left: 15),
+                    hintText: "Password",
+                    hintStyle: TextStyle(
+                        fontFamily: fontFamilyName,
+                        color: AppColors.formHintTextColor,
+                        fontSize: TextStyles.h1,
+                        fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
+              AppDesign.spaceWidgets(height: 8),
+              Padding(
+                padding: AppDesign.screenBodyPadding(),
+                child: customInputTextFormField(
+                  keyboardType: TextInputType.phone,
+                  validator: FormValidator.phone,
+                  onChanged: _onChangePhone,
+                  context: context,
+                  decoration: InputDecoration(
+                    border: inputBorder,
+                    filled: true,
+
+                    labelStyle: TextStyles.subTitle()
+                      ..copyWith(color: AppColors.whiteColor),
+                    fillColor: AppColors.whiteColor,
+                    focusedBorder: focusedEnabledBorder,
+                    enabledBorder: focusedEnabledBorder,
+                    counterText: "",
+                    // contentPadding: const EdgeInsets.only(left: 15),
+                    hintText: "Phone",
+                    hintStyle: TextStyle(
+                        fontFamily: fontFamilyName,
+                        color: AppColors.formHintTextColor,
+                        fontSize: TextStyles.h1,
+                        fontWeight: FontWeight.normal),
+                  ),
+                ),
+              ),
+              AppDesign.spaceWidgets(height: 12),
+              Padding(
+                padding: AppDesign.screenBodyPadding(),
+                child: Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: AppColors.lightGreen,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Create a New Company",
+                        style: TextStyle(
+                            color: AppColors.whiteColor,
+                            fontSize: TextStyles.h1,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
           ),
         ],
       ),
@@ -59,4 +185,10 @@ class CompanyScreenViewModel extends BaseViewModel {
   }
 
   _onChangeCompanyName(String p1) {}
+
+  _onChangeEmail(String p1) {}
+
+  _onChangePassword(String p1) {}
+
+  _onChangePhone(String p1) {}
 }

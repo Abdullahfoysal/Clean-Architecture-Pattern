@@ -33,11 +33,11 @@ Widget customInputTextFormField(
 }
 
 OutlineInputBorder inputBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(8.0),
+  borderRadius: BorderRadius.circular(5.0),
 );
 OutlineInputBorder focusedEnabledBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8.0),
-    borderSide: BorderSide(color: AppColors.grey, width: 2.0));
+    borderRadius: BorderRadius.circular(5.0),
+    borderSide: BorderSide(color: AppColors.formBorderColor, width: 1.0));
 OutlineInputBorder enabledBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(8.0),
+    borderRadius: BorderRadius.circular(5.0),
     borderSide: BorderSide(color: AppColors.whiteColor, width: 1.0));
