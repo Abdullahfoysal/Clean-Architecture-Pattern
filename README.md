@@ -5,7 +5,7 @@ A new Flutter company project.
 <h1> Clean Architecture Pattern</h1>
 <div>
   <h2>Technology specification </br></h2>
-  <h3>Frontent Architecture: stacked </h3>
+  <h3>Frontent Architecture: <a href="https://stacked.filledstacks.com/docs/getting-started/startup-logic/">stacked</a></h3>
   <h3>API intregation: retrofit,retrofit_generator,dio</h3>
    <h3>Dependency Injection: getX,injectable,injectable_generator</h3>
    <h3>Data Bindings : json_annotation,json_serializable,result_monad</h3>
