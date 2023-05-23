@@ -9,6 +9,7 @@ A new Flutter company project.
   <h3>API intregation: retrofit,retrofit_generator,dio</h3>
    <h3>Dependency Injection: getX,injectable,injectable_generator</h3>
    <h3>Data Bindings : json_annotation,json_serializable,result_monad</h3>
+      <h3>Error Handling: Interceptor Dio</h3>
    
   </div>
 
